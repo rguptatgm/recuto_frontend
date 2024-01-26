@@ -1,0 +1,16 @@
+@import "styles/themes.scss";
+
+.title-text {
+  font-size: $font-size-title-text;
+  font-weight: $font-weight-semi-bold;
+
+  @include themed() {
+    color: t("color-text");
+  }
+
+  &--color-secondary {
+    @include themed() {
+      color: t("color-text-secondary");
+    }
+  }
+}

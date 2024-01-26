@@ -1,0 +1,99 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.handle-invitation-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include themed() {
+    background: rgb(0, 0, 0);
+  }
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+
+    @include for-large-monitor-only {
+      max-width: 1800px;
+    }
+
+    @include for-mobile-tablet-only {
+      flex-direction: column;
+    }
+
+    .handle-invitation-preview-container {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      @include for-mobile-tablet-only {
+        height: auto;
+        width: 100%;
+      }
+
+      .gymo-logo {
+        height: 30px;
+        object-fit: contain;
+        margin-bottom: 40px;
+
+        @include for-phone-only {
+          margin-bottom: 20px;
+        }
+      }
+
+      .handle-invitation-header {
+        font-size: 40px;
+        line-height: 55px;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #fff;
+        white-space: pre;
+        margin-bottom: 55px !important;
+
+        @include for-mobile-tablet-only {
+          font-size: 30px;
+          line-height: 40px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .handle-invitation-preview-image {
+        width: 100%;
+        max-width: 500px;
+
+        @include for-mobile-tablet-only {
+          display: none;
+        }
+      }
+    }
+
+    .handle-invitation-form-wrapper {
+      width: 50%;
+
+      @include for-mobile-tablet-only {
+        width: 100%;
+      }
+
+      .decline-button {
+        padding-left: 0px;
+
+        @include themed() {
+          color: t("color-error");
+        }
+      }
+    }
+  }
+}

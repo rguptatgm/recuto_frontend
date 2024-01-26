@@ -1,0 +1,63 @@
+@import "styles/themes.scss";
+
+.link-button {
+  border: none;
+  cursor: pointer;
+  font-size: $font-size-running-text;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  padding: 10px 20px;
+  background-color: transparent;
+  @include themed() {
+    color: t("color-primary");
+  }
+
+  &:not(&--disabled):hover {
+    @include themed() {
+      color: t("color-primary-highlight");
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    @include themed() {
+      color: grey;
+    }
+  }
+
+  &--danger {
+    @include themed() {
+      color: t("color-error");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        color: rgba(t("color-error"), 0.7);
+      }
+    }
+  }
+
+  &--secondary {
+    @include themed() {
+      color: t("color-secondary");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        color: t("color-secondary-highlight");
+      }
+    }
+  }
+
+  &--warning {
+    @include themed() {
+      color: t("color-warning");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        color: rgba(t("color-warning"), 0.7);
+      }
+    }
+  }
+}

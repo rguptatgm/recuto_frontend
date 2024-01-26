@@ -1,0 +1,26 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.page-container-body-content-wrapper {
+  box-sizing: border-box;
+  padding: $padding-page-content;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  @include for-phone-only {
+    padding: $padding-page-content-left-right-mobile;
+  }
+
+  &--color-surface {
+    @include themed() {
+      background-color: t("color-surface");
+    }
+  }
+
+  &--color-background {
+    @include themed() {
+      background-color: t("color-background");
+    }
+  }
+}

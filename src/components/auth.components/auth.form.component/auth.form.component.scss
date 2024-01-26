@@ -1,0 +1,39 @@
+@import "styles/themes.scss";
+
+.sign-in-form-container {
+  height: calc(100% - 2 * $default-page-padding);
+  width: calc(100% - 2 * $default-page-padding);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: $default-page-padding;
+  background-color: #000;
+
+  .sign-in-form-wrapper {
+    height: auto;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    border-radius: 12px;
+    background: #fff;
+
+    @include themed() {
+      box-shadow: t('shadow');
+    }
+
+    .sign-in-form {
+      width: 100%;
+
+      .additional-actions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

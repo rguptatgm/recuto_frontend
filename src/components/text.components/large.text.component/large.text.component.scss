@@ -1,0 +1,10 @@
+@import "styles/themes.scss";
+
+.large-text {
+  font-size: $font-size-large-text;
+  font-weight: $font-weight-medium;
+
+  @include themed() {
+    color: t("color-text");
+  }
+}

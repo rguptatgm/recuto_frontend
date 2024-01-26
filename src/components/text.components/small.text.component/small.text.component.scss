@@ -1,0 +1,10 @@
+@import "styles/themes.scss";
+
+.small-text {
+  font-size: $font-size-small-text;
+  font-weight: $font-weight-medium;
+
+  @include themed() {
+    color: t("color-text");
+  }
+}

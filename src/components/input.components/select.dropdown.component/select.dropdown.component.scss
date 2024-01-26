@@ -1,0 +1,133 @@
+@import "styles/themes.scss";
+
+.select-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 15px;
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  .select-label {
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-small-text;
+
+    @include themed() {
+      color: #919191;
+    }
+
+    &--error {
+      @include themed() {
+        color: t("color-error");
+      }
+    }
+  }
+
+  .select {
+    width: 100%;
+  }
+
+  .validation-message {
+    height: 10px;
+    @include themed() {
+      color: t("color-error");
+    }
+  }
+}
+
+.dropdown-selection {
+  &__control {
+    border-radius: 8px !important;
+    font-size: $font-size-running-text !important;
+    font-weight: $font-weight-medium !important;
+    box-shadow: none !important;
+
+    @include themed() {
+      color: t("color-text") !important;
+      background-color: rgba(t("color-surface"), 0.33) !important;
+      border: 1.5px solid t("color-border") !important;
+    }
+
+    &:focus {
+      @include themed() {
+        color: t("color-text") !important;
+        border: 1.5px solid t("color-primary") !important;
+      }
+    }
+
+    &--is-focused {
+      @include themed() {
+        color: t("color-text") !important;
+        border: 1.5px solid t("color-primary") !important;
+      }
+    }
+  }
+
+  &__single-value {
+    @include themed() {
+      color: t("color-text") !important;
+    }
+  }
+
+  &__menu {
+    border-radius: $main-border-radius !important;
+    box-shadow: none !important;
+
+    @include themed() {
+      background-color: t("color-surface") !important;
+      border: 1.5px solid t("color-border") !important;
+    }
+  }
+
+  &__menu-list {
+    border-radius: $main-border-radius !important;
+  }
+
+  &__option {
+    cursor: pointer !important;
+
+    @include themed() {
+      color: t("color-text") !important;
+      font-weight: $font-weight-medium !important;
+      font-size: $font-size-running-text !important;
+    }
+
+    &--is-selected {
+      @include themed() {
+        background-color: t("color-primary") !important;
+      }
+    }
+
+    &:focus {
+      @include themed() {
+        background-color: t("color-primary") !important;
+      }
+    }
+  }
+}
+
+// for the hover effect on the dropdown and if the dropdown is focused
+.dropdown-selection__option:not(.dropdown-selection__option--is-selected):hover,
+.dropdown-selection__option:not(.dropdown-selection__option--is-selected):focus:hover {
+  @include themed() {
+    background-color: t("color-hover") !important;
+  }
+}
+
+.dropdown-selection__menu-list
+  .dropdown-selection__option:focus:not(.dropdown-selection__option--is-selected) {
+  @include themed() {
+    background-color: t("color-hover") !important;
+  }
+}
+
+.dropdown-selection__menu
+  .dropdown-selection__option:not(.dropdown-selection__option--is-selected):not(:hover):not(:focus) {
+  background-color: inherit;
+}

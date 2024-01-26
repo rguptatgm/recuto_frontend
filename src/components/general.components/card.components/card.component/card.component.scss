@@ -1,0 +1,19 @@
+@import "styles/themes.scss";
+
+.fact-card-wrapper {
+  padding: 20px;
+  border-radius: $main-border-radius;
+  cursor: pointer;
+  width: 350px;
+
+  @include themed() {
+    background-color: t("color-primary");
+    border: 1px solid t("color-primary");
+  }
+
+  &:hover {
+    @include themed() {
+      border: 1px solid t("color-secondary");
+    }
+  }
+}

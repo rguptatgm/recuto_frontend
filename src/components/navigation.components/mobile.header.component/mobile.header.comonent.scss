@@ -1,0 +1,16 @@
+@import "styles/themes.scss";
+
+.mobile-header-container {
+  padding: 15px;
+
+  @include themed() {
+    background: t("color-navigation-bar");
+  }
+
+  &-burger {
+    @include themed() {
+      color: t("color-background");
+      font-size: 30px;
+    }
+  }
+}

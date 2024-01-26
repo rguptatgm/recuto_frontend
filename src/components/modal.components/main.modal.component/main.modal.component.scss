@@ -1,0 +1,80 @@
+@import "styles/themes.scss";
+
+.main-modal-background-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+
+  &-blur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px) brightness(60%);
+
+    .main-modal-container {
+      position: relative;
+      min-height: 100px;
+      width: 100%;
+      border-radius: $main-border-radius;
+      -webkit-animation: fadeIn 500ms;
+      animation: fadeIn 500ms;
+      z-index: 10;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: 20px;
+
+      &-small {
+        max-width: 580px;
+      }
+
+      &-medium {
+        max-width: 1000px;
+      }
+
+      &-large {
+        max-width: 1200px;
+      }
+
+      @include themed() {
+        background-color: t("color-background");
+        box-shadow: t("shadow");
+      }
+
+      &-close-icon {
+        font-size: 25px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+
+        @include themed() {
+          color: t("color-text");
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

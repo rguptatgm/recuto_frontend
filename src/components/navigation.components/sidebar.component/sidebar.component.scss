@@ -1,0 +1,67 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.sidebar-navigation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 220px;
+  height: calc(100% - 40px);
+  padding: 20px;
+
+  @include for-phone-only {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 40px);
+    transition: display 0s, opacity 0.5s linear;
+    z-index: 1000;
+    overflow-y: scroll;
+  }
+
+  @include for-tablet-only {
+    width: 30px;
+  }
+
+  @include themed() {
+    background: t("color-navigation-bar");
+  }
+
+  .sidebar-navigation-body {
+    width: 100%;
+
+    @include themed() {
+      background-color: t("color-input-background");
+    }
+
+    .sidebar-header {
+      &-logo {
+        margin-bottom: 50px;
+
+        @include for-tablet-only {
+          margin-left: 0px;
+        }
+      }
+
+      &-close {
+        font-size: 30px;
+        color: #fff;
+
+        @include for-tablet-only {
+          display: none;
+        }
+      }
+    }
+
+    .sidebar-navigation-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}

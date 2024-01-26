@@ -1,0 +1,78 @@
+@import "styles/themes.scss";
+/* The filled-checkbox-wrapper */
+.filled-checkbox-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: auto;
+  width: auto;
+}
+
+/* Hide the browser's default checkbox */
+.filled-checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.filled-checkmark-container {
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  @include themed() {
+    background-color: t("color-surface");
+    border: 1.5px solid t("color-border");
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.filled-checkbox-wrapper:hover input ~ .filled-checkmark-container {
+  @include themed() {
+    background-color: t("color-hover");
+  }
+}
+
+/* When the checkbox is checked, add a blue background */
+.filled-checkbox-wrapper input:checked ~ .filled-checkmark-container {
+  border-radius: 5px;
+
+  @include themed() {
+    background-color: t("color-primary");
+  }
+}
+
+/* Create the filled-checkmark-container/indicator (hidden when not checked) */
+.filled-checkmark-container:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the filled-checkmark-container when checked */
+.filled-checkbox-wrapper input:checked ~ .filled-checkmark-container:after {
+  display: block;
+}
+
+/* Style the filled-checkmark-container/indicator */
+.filled-checkbox-wrapper .filled-checkmark-container:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

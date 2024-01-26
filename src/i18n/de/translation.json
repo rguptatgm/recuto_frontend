@@ -1,0 +1,16 @@
+{
+    "auth": {
+      "noAccount": "Kein Account? Melde dich kostenlos an.",
+      "forgotPassword": "Passwort vergessen?",
+      "welcomeBack": "Willkommen zurück!",
+      "signInToContinue": "Bitte melde dich an, um fortzufahren.",
+      "signIn": "Anmelden",
+      "signUp": "Registrieren",
+      "password": "Passwort",
+      "email": "E-Mail",
+      "welcome": "Willkommen bei Gymo!",
+      "signUpDescription": "Die smarte Digitalisierung deines Fitnessstudios.",
+      "alreadyRegistered": "Bereits registriert? Melde dich an."
+    }
+  }
+  

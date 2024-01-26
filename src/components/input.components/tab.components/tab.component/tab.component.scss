@@ -1,0 +1,35 @@
+@import "styles/themes.scss";
+
+.tab-component {
+  cursor: pointer;
+  font-size: $font-size-running-text;
+  font-weight: $font-weight-medium;
+  padding: 4px 2px 2px 2px;
+
+  @include themed() {
+    color: t("color-text");
+    background-color: transparent;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+  }
+
+  &:not(.active-tab-component):hover {
+    @include themed() {
+      // background: t("color-surface");
+      // border-bottom: 1.5px solid t("color-primary");
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.active-tab-component {
+  @include themed() {
+    border-bottom: 1.5px solid t("color-primary");
+    // background-color: t("color-primary");
+    //color: white;
+  }
+}

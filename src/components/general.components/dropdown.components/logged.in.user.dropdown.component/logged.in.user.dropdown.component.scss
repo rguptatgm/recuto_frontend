@@ -1,0 +1,121 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.dropdown-wrapper {
+  width: 100%;
+  height: 60px;
+
+  .dropdown-content {
+    z-index: 100;
+    position: absolute;
+    bottom: 90px;
+    width: 220px;
+    border-radius: $main-border-radius;
+
+    @include for-tablet-only {
+      bottom: 75px;
+      left: 7px;
+    }
+
+    .dropdown-content-container {
+      @include themed() {
+        background-color: t("color-secondary");
+        box-shadow: t("shadow");
+      }
+
+      .dropdown-down-item {
+        padding: 13px;
+
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        align-items: center;
+
+        &-icon {
+          margin-right: 10px;
+          color: #fff;
+        }
+
+        &-label {
+          color: #fff;
+        }
+
+        &:hover * {
+          @include themed() {
+            color: t("color-primary");
+          }
+        }
+
+        &-theme-toggle {
+          justify-content: space-between;
+        }
+      }
+    }
+
+    .bottom-container {
+      border-radius: $main-border-radius;
+
+      @include themed() {
+        background-color: t("color-secondary-highlight");
+        box-shadow: t("shadow");
+      }
+    }
+
+    .top-container {
+      border-radius: $main-border-radius;
+    }
+  }
+
+  .dropdown-element {
+    position: relative;
+    border-radius: $main-border-radius;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @include themed() {
+      background-color: #2b2d2e;
+      box-shadow: t("shadow");
+
+      @include for-tablet-only {
+        background-color: #2b2d2e;
+        box-shadow: none;
+        position: absolute;
+        bottom: 10px;
+        left: 7px;
+      }
+    }
+
+    .user-profile-image {
+      border-radius: 50%;
+      object-fit: cover;
+      width: 45px;
+      height: 45px;
+      margin: 13px 10px 13px 13px;
+
+      @include for-tablet-only {
+        margin: 7px;
+        width: 40px;
+        height: 40px;
+      }
+
+      @include themed() {
+        box-shadow: t("shadow");
+      }
+    }
+
+    .user-info-wrapper {
+      flex: 1;
+
+      @include for-tablet-only {
+        display: none;
+      }
+
+      &-username {
+        overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

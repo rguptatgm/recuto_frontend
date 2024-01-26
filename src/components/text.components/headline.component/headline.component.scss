@@ -1,0 +1,19 @@
+@import "styles/themes.scss";
+
+.headline {
+  font-size: $font-size-default-headline;
+  font-weight: $font-weight-bold;
+
+  @include themed() {
+    color: t("color-text");
+  }
+
+  > span {
+    font-size: $font-size-default-headline;
+    font-weight: $font-weight-bold;
+
+    @include themed() {
+      color: t("color-text");
+    }
+  }
+}

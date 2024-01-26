@@ -1,0 +1,151 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.outlined-text-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  &-info-tag {
+    padding: 3px 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: $font-size-running-text;
+    cursor: pointer;
+    margin-right: -3px;
+
+    @include themed() {
+      background-color: t("color-surface");
+      color: t("color-text");
+      border: 1.5px solid t("color-border");
+      border-bottom: none;
+    }
+
+    &:hover {
+      @include themed() {
+        background-color: t("color-primary");
+      }
+    }
+  }
+
+  &-wrapper {
+    position: relative;
+    width: 100%;
+
+    .default-input-field {
+      width: calc(100% - 20px);
+      font-size: $font-size-running-text;
+      outline: none;
+      border-radius: 8px;
+      padding: 10px 10px;
+      transition: 0.1s ease-out;
+
+      @include themed() {
+        color: t("color-text");
+        border: 1.5px solid t("color-border");
+      }
+
+      @include for-phone-only {
+        font-size: 16px;
+      }
+
+      &--info-label-active {
+        border-top-right-radius: 0px !important;
+      }
+
+      &:focus {
+        @include themed() {
+          color: t("color-text");
+          border: 1.5px solid t("color-primary");
+        }
+      }
+
+      &:focus + .default-input-field-label {
+        top: 0;
+        left: 0;
+        transform: translateY(-120%);
+        font-weight: $font-weight-regular;
+        font-size: $font-size-small-text;
+
+        @include themed() {
+          color: t("color-primary");
+        }
+      }
+
+      &:not(:placeholder-shown) + .default-input-field-label {
+        top: 0;
+        left: 0;
+        transform: translateY(-120%);
+        font-weight: $font-weight-regular;
+        font-size: $font-size-small-text;
+
+        @include themed() {
+          color: #919191;
+        }
+      }
+
+      &:not(:focus):placeholder-shown + .default-input-field-label {
+        display: none;
+      }
+
+      &--error {
+        @include themed() {
+          border: 1.4px solid t("color-error");
+        }
+      }
+
+      &--disabled {
+        @include themed() {
+          background-color: t("color-surface");
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .default-input-field-label {
+      position: absolute;
+      font-size: $font-size-running-text;
+      left: 10px;
+      top: 0px;
+      transform: translateY(70%);
+      padding: 0px 5px;
+      transition: 0.1s ease-out;
+      transform-origin: left top;
+      pointer-events: none;
+
+      @include themed() {
+        color: #acadb6;
+      }
+
+      &--error {
+        @include themed() {
+          color: t("color-error");
+        }
+      }
+    }
+
+    .suffix-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: gray;
+      cursor: pointer;
+
+      @include themed() {
+        color: t("color-text");
+      }
+    }
+  }
+
+  .validation-message {
+    height: 10px;
+    @include themed() {
+      color: t("color-error");
+    }
+  }
+}

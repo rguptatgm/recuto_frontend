@@ -1,0 +1,81 @@
+@import "styles/themes.scss";
+
+.filled-button {
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: $font-size-running-text;
+  font-weight: $font-weight-semi-bold;
+  padding: 10px 30px;
+
+  @include themed() {
+    background-color: t("color-primary");
+    color: white;
+  }
+
+  &:not(&--disabled):hover {
+    @include themed() {
+      background: rgba(t("color-primary"), 0.4);
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+    color: transparent;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+
+  &--danger {
+    @include themed() {
+      background: rgba(t("color-error"), 0.2);
+      color: t("color-error");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        background: rgba(t("color-error"), 0.4);
+        color: rgba(t("color-error"), 0.7);
+      }
+    }
+  }
+
+  &--secondary {
+    @include themed() {
+      background-color: t("color-secondary");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        background: t("color-secondary-highlight");
+      }
+    }
+  }
+
+  &--warning {
+    @include themed() {
+      background-color: t("color-warning");
+    }
+
+    &:not(&--disabled):hover {
+      @include themed() {
+        background: rgba(t("color-warning"), 0.7);
+      }
+    }
+  }
+
+  .button-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

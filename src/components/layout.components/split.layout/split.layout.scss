@@ -1,0 +1,33 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.split-layout-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+
+  @media (max-width: 830px) {
+    flex-direction: column;
+  }
+
+  .split-container-wrapper {
+    height: 100%;
+    width: auto;
+    display: flex;
+    transition: 0.45s all ease;
+  }
+}
+
+.split-layout-flex-column {
+  flex-direction: column;
+}
+
+.nothing-selected-placeholder {
+  width: auto;
+
+  &-image {
+    width: 100%;
+    max-width: 500px;
+  }
+}

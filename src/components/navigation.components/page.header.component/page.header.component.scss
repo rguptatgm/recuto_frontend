@@ -1,0 +1,16 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.page-header-container {
+  margin-bottom: 30px;
+
+  @include for-phone-only {
+    flex-direction: column;
+    align-items: start !important;
+    row-gap: 10px;
+  }
+
+  .action-row {
+    width: auto;
+  }
+}

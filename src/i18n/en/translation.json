@@ -1,0 +1,16 @@
+{
+    "auth": {
+      "noAccount": "No account? Sign up for free.",
+      "forgotPassword": "Forgot password?",
+      "welcomeBack": "Welcome back!",
+      "signInToContinue": "Please, sign in to continue",
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "password": "Password",
+      "email": "Email",
+      "welcome": "Welcome to Gymo!",
+      "signUpDescription": "The smart digitalization of your gym.",
+      "alreadyRegistered": "Already registered? Sign in."
+    }
+  }
+  

@@ -1,0 +1,31 @@
+@import "styles/themes.scss";
+
+@mixin for-phone-only {
+  @media (max-width: 470px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (min-width: 471px) and (max-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin for-mobile-tablet-only {
+  @media only screen and (max-width: 1300px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: 951px) {
+    @content;
+  }
+}
+
+@mixin for-large-monitor-only {
+  @media (min-width: 2100px) {
+    @content;
+  }
+}

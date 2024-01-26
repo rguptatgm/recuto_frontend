@@ -1,0 +1,10 @@
+@import "styles/themes.scss";
+
+.small-headline {
+  font-size: $font-size-small-headline;
+  font-weight: $font-weight-bold;
+
+  @include themed() {
+    color: t("color-text");
+  }
+}

@@ -1,0 +1,10 @@
+@import "styles/themes.scss";
+
+.spacer {
+  height: 1px;
+  width: 100%;
+
+  @include themed() {
+    background: t("color-border");
+  }
+}

@@ -1,0 +1,45 @@
+@import "styles/themes.scss";
+
+.info-box {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: $main-border-radius;
+  @include themed() {
+    background-color: t("color-primary-ultralight");
+  }
+
+  &-icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .icon {
+      font-size: 18px;
+      margin-right: 10px;
+
+      @include themed() {
+        color: t("color-primary");
+      }
+    }
+
+    span {
+      font-size: 15px;
+      font-weight: bold;
+
+      @include themed() {
+        color: t("color-primary");
+      }
+    }
+  }
+
+  &-content {
+    font-weight: $font-weight-medium;
+    font-size: $font-size-running-text;
+    @include themed() {
+      color: t("color-text");
+    }
+  }
+}

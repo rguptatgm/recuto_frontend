@@ -1,0 +1,11 @@
+@import "styles/themes.scss";
+
+.link-text {
+  font-size: $font-size-running-text;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+
+  @include themed() {
+    color: t("color-text");
+  }
+}

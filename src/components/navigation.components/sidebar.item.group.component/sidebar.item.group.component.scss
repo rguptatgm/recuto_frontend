@@ -1,0 +1,31 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.group_wrapper {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+
+  .group-wrapper-label {
+    font-weight: $font-weight-semi-bold;
+
+    @include themed() {
+      color: t("color-background");
+    }
+
+    @include for-tablet-only {
+      display: none;
+    }
+  }
+
+  .group_content {
+    height: 100%;
+    width: 100%;
+
+    @include for-tablet-only {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

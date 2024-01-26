@@ -1,0 +1,29 @@
+@import "styles/themes.scss";
+
+.sized-container {
+  width: 100%;
+
+  &--s {
+    max-width: $max-s;
+  }
+
+  &--m {
+    max-width: $max-m;
+  }
+
+  &--l {
+    max-width: $max-l;
+  }
+
+  &--xml {
+    max-width: $max-xml;
+  }
+
+  &--xl {
+    max-width: $max-xl;
+  }
+
+  &--xxl {
+    max-width: $max-xxl;
+  }
+}

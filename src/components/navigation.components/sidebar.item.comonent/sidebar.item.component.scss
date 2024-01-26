@@ -1,0 +1,59 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.navigation-item-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: $main-border-radius;
+  padding: 10px;
+  margin-bottom: 2px;
+
+  .sidebar-item {
+    &-icon {
+      width: 30px;
+      opacity: 0.4;
+
+      @include themed() {
+        color: t("color-background");
+      }
+    }
+
+    &-label {
+      opacity: 0.4;
+
+      @include themed() {
+        color: t("color-background");
+      }
+
+      @include for-tablet-only {
+        display: none;
+      }
+    }
+  }
+
+  &--active,
+  &:hover {
+    .sidebar-item {
+      &-icon {
+        opacity: 1;
+
+        @include themed() {
+          color: t("color-primary");
+        }
+
+        transition: color 0.2s linear;
+      }
+
+      &-label {
+        opacity: 1;
+
+        @include themed() {
+          color: t("color-primary");
+        }
+
+        transition: color 0.2s linear;
+      }
+    }
+  }
+}

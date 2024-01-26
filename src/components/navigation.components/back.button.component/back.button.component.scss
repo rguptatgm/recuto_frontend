@@ -1,0 +1,37 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.action-back-button {
+  margin-right: 10px;
+  object-fit: contain;
+  width: 37px;
+  min-width: 37px;
+  height: 37px;
+  min-height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $main-border-radius;
+  cursor: pointer;
+
+  @include themed() {
+    color: t("color-inverted");
+    border: 1.5px solid t("color-border");
+  }
+
+  &:hover {
+    @include themed() {
+      color: t("color-primary");
+      background-color: t("color-primary-highlight");
+      transition: background-color 0.2s linear;
+    }
+  }
+
+  .back-icon {
+    font-size: 20px;
+
+    @include themed() {
+      color: t("color-border");
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import "styles/themes.scss";
+
+.modal-header {
+  padding: 20px $padding-page-content-left-right;
+  @include themed() {
+    border-bottom: 1.5px solid t("color-border");
+  }
+}

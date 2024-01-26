@@ -1,0 +1,135 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.sign-up-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @include themed() {
+    background: rgb(0, 0, 0);
+  }
+
+  &-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+
+    @include for-large-monitor-only {
+      max-width: 1800px;
+    }
+
+    @include for-mobile-tablet-only {
+      flex-direction: column;
+    }
+
+    .sign-up-form-preview-container {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      @include for-mobile-tablet-only {
+        height: auto;
+        width: 100%;
+      }
+
+      .gymo-logo {
+        height: 30px;
+        object-fit: contain;
+        margin-bottom: 40px;
+
+        @include for-phone-only {
+          margin-bottom: 20px;
+        }
+      }
+
+      .sign-up-header {
+        font-size: 40px;
+        line-height: 55px;
+        letter-spacing: 1px;
+        text-align: center;
+        color: #fff;
+        white-space: pre;
+        margin-bottom: 50px;
+
+        @include for-mobile-tablet-only {
+          font-size: 30px;
+          line-height: 40px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .sign-up-preview-image {
+        width: 100%;
+        margin-bottom: -400px;
+        max-width: 400px;
+
+        @include for-large-monitor-only {
+          margin-bottom: 0px;
+        }
+
+        @include for-mobile-tablet-only {
+          display: none;
+        }
+      }
+    }
+
+    .auth-form-wrapper {
+      width: 50%;
+
+      @include for-mobile-tablet-only {
+        width: 100%;
+      }
+
+      .sign-up-form-container {
+        height: calc(100% - 2 * $default-page-padding);
+        width: calc(100% - 2 * $default-page-padding);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $default-page-padding;
+        background-color: #000;
+
+        .sign-up-form-wrapper {
+          height: auto;
+          width: 100%;
+          max-width: 420px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+          padding: 40px;
+          border-radius: 12px;
+          background: #fff;
+
+          @include themed() {
+            box-shadow: t("shadow");
+          }
+
+          .sign-up-form {
+            width: 100%;
+
+            .additional-actions {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

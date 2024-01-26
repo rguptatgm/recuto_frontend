@@ -1,0 +1,41 @@
+@import "styles/themes.scss";
+
+.highlighted-info-text {
+  border-style: border-box;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+
+  &-success {
+    @include themed() {
+      background-color: #e6f8eb;
+
+      .highlighted-info-text-pargraph {
+        color: t("color-success");
+        font-weight: 300;
+      }
+    }
+  }
+
+  &-warning {
+    @include themed() {
+      background-color: #f8f4e6;
+
+      .highlighted-info-text-pargraph {
+        color: t("color-warning");
+        font-weight: 300;
+      }
+    }
+  }
+
+  &-error {
+    @include themed() {
+      background-color: #f8e6e6;
+
+      .highlighted-info-text-pargraph {
+        color: t("color-error");
+        font-weight: 300;
+      }
+    }
+  }
+}

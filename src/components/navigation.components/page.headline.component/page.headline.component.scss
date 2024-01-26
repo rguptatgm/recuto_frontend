@@ -1,0 +1,32 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.page-headline-container {
+  min-height: 72px;
+
+  &-padding {
+    padding: 0px $padding-page-content-left-right;
+  }
+
+  @include themed() {
+    &-background {
+      background-color: t("color-background");
+    }
+
+    &-border-bottom {
+      border-bottom: 1.5px solid t("color-border");
+    }
+  }
+
+  @include for-phone-only {
+    overflow-y: scroll;
+  }
+
+  .page-headline-left-actions {
+    width: auto;
+  }
+
+  &-actions {
+    width: auto;
+  }
+}

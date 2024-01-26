@@ -1,0 +1,36 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.page-container-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+
+  .page-container-sidebar {
+    height: 100%;
+    width: auto;
+  }
+
+  .topbars-body-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+
+    .page-container-topbar {
+      width: 100%;
+      height: auto;
+    }
+
+    .page-container-body {
+      flex: 1;
+      overflow-y: auto;
+
+      @include themed() {
+        background-color: #F7FAFA;
+      }
+    }
+  }
+}

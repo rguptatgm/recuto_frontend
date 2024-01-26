@@ -1,0 +1,100 @@
+@import "styles/themes.scss";
+@import "styles/utils.scss";
+
+.list-data-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+
+    @include themed() {
+      background-color: t("color-surface-dark");
+    }
+  }
+
+  &-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-item-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
+
+// Needs to be outside because of the sortable
+.list-data-table-body-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  align-items: center;
+  z-index: 2;
+
+  @include for-phone-only {
+    gap: 10px !important;
+  }
+
+  &:not(.list-data-table-body-item-selected):hover {
+    @include themed() {
+      background-color: t("color-hover");
+    }
+  }
+
+  &-separator {
+    width: 100%;
+    height: 1px;
+
+    @include themed() {
+      background-color: t("color-border");
+    }
+  }
+
+  &-selected {
+    @include themed() {
+      background-color: t("color-hover");
+    }
+  }
+}
+
+// skeleton
+
+.skeleton-list-data-item-wrapper {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding: 15px 63px 15px 63px;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  gap: 29px;
+  align-items: center;
+
+  @include for-phone-only {
+    padding: 10px $padding-page-content-left-right-mobile;
+  }
+
+  @include themed() {
+    &:not(&--active):hover {
+      background-color: t("color-hover");
+    }
+  }
+
+  .skeleton-list-data-item-text-container {
+    flex: 2;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+  }
+}

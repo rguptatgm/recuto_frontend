@@ -1,0 +1,12 @@
+.company-icon {
+  object-fit: contain;
+  width: auto;
+
+  rect {
+    fill: #fff;
+  }
+
+  &--cursor-pointer {
+    cursor: pointer;
+  }
+}
