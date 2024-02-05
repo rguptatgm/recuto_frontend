@@ -13,6 +13,8 @@ import ProjectSetupPage from "../pages/setup.pages/project.setup.page/project.se
 import SignUpPage from "../pages/auth.pages/sign.up.page/sign.up.page";
 import ExamplePage from "../pages/example.page";
 import MainModal from "../components/modal.components/main.modal.component/main.modal.component";
+import InterviewCreate from "../pages/interview.pages/interview.create.page";
+import InterviewParticipate from "../pages/interview.pages/interview.participate.page";
 
 const Routing = (): JSX.Element => {
   return (
@@ -40,6 +42,8 @@ const Routing = (): JSX.Element => {
           <Route path="/projects" element={<ProjectOverview />} />
           <Route path="/projects/:projectID/*" element={<DashboardPage />}>
             <Route path="home/*" element={<HomePage />} />
+            <Route path="interview-create/*" element={<InterviewCreate/>} />
+            <Route path="interview-participate/*" element={<InterviewParticipate/>}/>
             <Route path="settings/*" element={<ProjectSettingsPage />} />
             <Route path="example/*" element={<ExamplePage />} />
           </Route>
