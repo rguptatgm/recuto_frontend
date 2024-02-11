@@ -10,7 +10,7 @@ import CompanyLogo from "../../general.components/company.logo.component/company
 import Column from "../../layout.components/column.component/column.component";
 import { inject, observer } from "mobx-react";
 import ProjectStore from "../../../stores/project.store";
-import { faHouse, faPen, faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faPen, faCamera, faStar } from "@fortawesome/free-solid-svg-icons";
 import LoggedInUserDropdown from "../../general.components/dropdown.components/logged.in.user.dropdown.component/logged.in.user.dropdown.component";
 
 interface SidebarNavigationProps {
@@ -80,6 +80,10 @@ const SidebarNavigation = ({
 
             <SidebarNavigationItem icon={faCamera} path={getPath("interview-participate")}>
               Interview halten
+            </SidebarNavigationItem>
+
+            <SidebarNavigationItem icon={faStar} path={getPath("interview-review")}>
+              Interview bewerten
             </SidebarNavigationItem>
 
             <SidebarNavigationItem

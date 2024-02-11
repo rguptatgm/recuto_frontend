@@ -3,35 +3,33 @@ import PageContainer from '../../components/layout.components/page.container.com
 import OutlinedTextInput from '../../components/input.components/outlined.text.input.component/outlined.text.input.component';
 import FilledButton from '../../components/input.components/filled.button.component/filled.button.component';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { interviewSchema } from '../../schemas/interview.schema';
+import InterviewStore from '../../stores/interview.store';
+import { inject, observer } from 'mobx-react';
 
-interface Question {
-    questionTitle: string;
-    question: string;
-}
+//interface Question {
+//    questionTitle: string;
+//    question: string;
+//}
 
 interface InterviewFormProps {
-    title?: string;
-    description?: string;
-    thinkingTime?: number;
-    maxAnswerTime?: number;
-    maxRetakes?: number;
-    questions?: Question[];
+    interviewStore?: InterviewStore;
+//    title?: string;
+//    description?: string;
+//    thinkingTime?: number;
+//    maxAnswerTime?: number;
+//    maxRetakes?: number;
+//    questions?: Question[];
 }
 
 const InterviewForm = ({
-    title,
-    description,
-    thinkingTime,
-    maxAnswerTime,
-    maxRetakes,
-    questions,
+    interviewStore,
 }: InterviewFormProps): JSX.Element => {
+
     const {
         register,
         handleSubmit,
-        control,
     } = useForm({
         resolver: yupResolver(interviewSchema),
         mode: 'onTouched',
@@ -39,18 +37,21 @@ const InterviewForm = ({
         defaultValues: {
             title: '',
             description: '',
-            questions: [{ questionTitle: '', question: '' }],
+            //questions: [{ questionTitle: '', question: '' }],
         },
     });
 
-    const { fields, append, remove } = useFieldArray({
-        control,
-        name: 'questions',
-    });
+    //const { fields, append, remove } = useFieldArray({
+    //    control,
+    //    name: 'questions',
+    //});
 
     const onSubmit = async (data: any): Promise<void> => {
-        console.log(data);
-        // implement saving to database
+        const newInterview = await interviewStore?.createInterview({
+            ...data
+        });
+
+        //console.log(newInterview);
     };
 
     return (
@@ -93,8 +94,8 @@ const InterviewForm = ({
                     />
 
                     <hr />
-
-                    {/* Question fields */}
+{/* 
+                    
                     {fields.map((question, index) => (
                         <div key={question.id} className="question-container">
                             <OutlinedTextInput
@@ -113,14 +114,14 @@ const InterviewForm = ({
                         </div>
                     ))}
 
-                    {/* Button to add more questions */}
+                    
                     <FilledButton
                         type="button"
                         label={"Frage hinzufügen"}
                         onClick={() => append({ questionTitle: '', actualQuestion: '', questionType: 'QUESTION' })}
                     />
 
-                    {/* Remove Question button */}
+                    
                     {fields.length > 0 && (
                         <FilledButton
                             type="button"
@@ -128,13 +129,14 @@ const InterviewForm = ({
                             onClick={() => remove(fields.length - 1)}
                         />
                     )}
-
-                    {/* Submit-Button */}
+*/}
+                    
                     <FilledButton
                         color="primary"
                         type="submit"
                         label={'Interview Erstellen'}
                         className="mt-15 mb-15 full-width"
+                        onClick={handleSubmit(onSubmit)}
                     />
                 </form>
             </PageContainer>
@@ -142,4 +144,4 @@ const InterviewForm = ({
     );
 };
 
-export default InterviewForm;
+export default inject("interviewStore")(observer(InterviewForm));

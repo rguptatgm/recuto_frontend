@@ -6,7 +6,7 @@ export const interviewSchema = yup.object().shape({
     thinkingTime: yup.number().required(),
     maxAnswerTime:yup.number().required(),
     maxRetakes:yup.number().required(),
-    questions: yup.array().required()
+    //questions: yup.array().required()
 });
 
 export interface Interview extends yup.InferType<typeof interviewSchema> {}

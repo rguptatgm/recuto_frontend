@@ -37,6 +37,9 @@ const ProjectSettingsPage = ({ projectStore }: ProjectSettingsPageProps) => {
 
   // handle exercise  form submit
   const onSubmit = async (data: any): Promise<void> => {
+
+    console.log(projectStore);
+
     const updatedProject = await projectStore?.updateCurrentProject({
       ...data,
     });

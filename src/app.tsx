@@ -6,15 +6,19 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
 import ProjectStore from "./stores/project.store";
 import { ModalStore } from "./stores/modal.store";
+import InterviewStore from "./stores/interview.store";
+
 
 const userStore = new UserStore();
 const projectStore = new ProjectStore();
 const modalStore = new ModalStore();
+const interviewStore = new InterviewStore();
 
 const stores = {
   userStore,
   projectStore,
   modalStore,
+  interviewStore,
 };
 
 const App = () => {

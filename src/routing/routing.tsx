@@ -15,6 +15,7 @@ import ExamplePage from "../pages/example.page";
 import MainModal from "../components/modal.components/main.modal.component/main.modal.component";
 import InterviewCreate from "../pages/interview.pages/interview.create.page";
 import InterviewParticipate from "../pages/interview.pages/interview.participate.page";
+import InterviewReview from "../pages/interview.pages/interview.review.page";
 
 const Routing = (): JSX.Element => {
   return (
@@ -44,6 +45,7 @@ const Routing = (): JSX.Element => {
             <Route path="home/*" element={<HomePage />} />
             <Route path="interview-create/*" element={<InterviewCreate/>} />
             <Route path="interview-participate/*" element={<InterviewParticipate/>}/>
+            <Route path="interview-review/*" element={<InterviewReview/>}/>
             <Route path="settings/*" element={<ProjectSettingsPage />} />
             <Route path="example/*" element={<ExamplePage />} />
           </Route>
