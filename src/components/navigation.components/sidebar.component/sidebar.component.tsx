@@ -74,6 +74,10 @@ const SidebarNavigation = ({
               Home
             </SidebarNavigationItem>
 
+            <SidebarNavigationItem icon={faHouse} path={getPath("organization")}>
+              Organization
+            </SidebarNavigationItem>
+
             <SidebarNavigationItem
               icon={faInfoSquare}
               path={getPath("example")}

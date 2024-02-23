@@ -6,15 +6,19 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
 import ProjectStore from "./stores/project.store";
 import { ModalStore } from "./stores/modal.store";
+import OrganizationStore from "./stores/organization.store.ts";
 
 const userStore = new UserStore();
 const projectStore = new ProjectStore();
 const modalStore = new ModalStore();
+const organizationStore = new OrganizationStore();
+
 
 const stores = {
   userStore,
   projectStore,
   modalStore,
+  organizationStore,
 };
 
 const App = () => {
@@ -72,5 +76,4 @@ const App = () => {
     </GoogleOAuthProvider>
   );
 };
-
 export default App;
