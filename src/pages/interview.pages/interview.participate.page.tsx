@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import Webcam from "react-webcam";
 
-import FilledButton from '../../components/input.components/filled.button.component/filled.button.component';
-import MainLayout from '../../components/layout.components/main.layout/main.layout';
-import PageContainer from '../../components/layout.components/page.container.component/page.container.component';
+import FilledButton from '../../components/input.components/filled.button.component/filled.button.component.tsx';
+import MainLayout from '../../components/layout.components/main.layout/main.layout.tsx';
+import PageContainer from '../../components/layout.components/page.container.component/page.container.component.tsx';
 import OutlinedTextArea from "../../components/input.components/outlined.text.area.component/outlined.text.area.component.tsx";
 
 const InterviewParticipate = () => {
