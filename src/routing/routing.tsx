@@ -14,6 +14,7 @@ import SignUpPage from "../pages/auth.pages/sign.up.page/sign.up.page";
 import ExamplePage from "../pages/example.page";
 import MainModal from "../components/modal.components/main.modal.component/main.modal.component";
 import InterviewCreate from "../pages/interview.pages/interview.create.page";
+import QuestionCreate from "../pages/interview.pages/interview.create.question.page";
 import InterviewParticipate from "../pages/interview.pages/interview.participate.page";
 import InterviewReview from "../pages/interview.pages/interview.review.page";
 
@@ -44,6 +45,7 @@ const Routing = (): JSX.Element => {
           <Route path="/projects/:projectID/*" element={<DashboardPage />}>
             <Route path="home/*" element={<HomePage />} />
             <Route path="interview-create/*" element={<InterviewCreate/>} />
+            <Route path="interview-create-question/*" element={<QuestionCreate/>} />
             <Route path="interview-participate/*" element={<InterviewParticipate/>}/>
             <Route path="interview-review/*" element={<InterviewReview/>}/>
             <Route path="settings/*" element={<ProjectSettingsPage />} />

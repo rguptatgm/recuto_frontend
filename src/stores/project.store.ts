@@ -17,7 +17,7 @@ class ProjectStore {
     if (project == null) {
       return;
     }
-
+    
     this._currentProject = project;
     setResource(project?._id);
   };

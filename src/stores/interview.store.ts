@@ -5,25 +5,45 @@ import { Logging } from "../globals/helpers/logging.helper";
 
 
 class InterviewStore{
-    private _interview: Interview | undefined;
+    private _interviews: Interview[] = [];  
+    private _currentInterview: Interview | undefined;
 
     constructor(){
         makeAutoObservable(this);
     }
-
+    
     //! Setter
-    setInterview = (interview: Interview): any => {
-        this._interview = interview;
+    setCurrentInterview = (interview: Interview): any => {
+        if(interview == null){
+            return;
+        }
+
+        
+        this._currentInterview = interview;
     }
+
+    setInterviews = (interviews: Interview[]): any => {
+        this._interviews = interviews;
+    };
 
 
     //! Getters
     get interview(): Interview | undefined {
-        if(this._interview == null) {
+        if(this._currentInterview == null) {
             return;
         }
 
-        return JSON.parse(JSON.stringify(this._interview));
+        return JSON.parse(JSON.stringify(this._currentInterview));
+    }
+
+    
+
+    get interviews(): Interview[] | undefined {
+      if (this._interviews == null) {
+        return;
+      }
+
+      return JSON.parse(JSON.stringify(this._interviews));
     }
 
     
@@ -38,7 +58,7 @@ class InterviewStore{
             
             console.log(initialInterview);
 
-            this.setInterview(initialInterview);
+            this.setCurrentInterview(initialInterview);
             return initialInterview;
         }catch(err){
             Logging.error({
@@ -51,6 +71,31 @@ class InterviewStore{
         }
         
     };
+
+  updateCurrentInterview = async (
+    interview: Interview
+  ): Promise<Interview | undefined> => {
+    try {
+      const updatedInterview =
+        await HttpInterviewService.getInstance().updateCurrentInterview(interview);
+
+      if (updatedInterview == null) {
+        return;
+      }
+
+      this.setCurrentInterview(updatedInterview);
+
+      return updatedInterview;
+    } catch (err) {
+      Logging.error({
+        className: "InterviewStore",
+        methodName: "updateCurrentInterview",
+        message: "Could not update current interview",
+        exception: err,
+        showAlert: true,
+      });
+    }
+  };
 }
 
 export default InterviewStore;

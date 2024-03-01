@@ -4,6 +4,7 @@ import { GenericHttpClient } from "./config/http.generic.client";
 
 export class HttpInterviewService extends GenericHttpClient<Interview>{
     static _instance: HttpInterviewService;
+    updateCurrentInterview: any;
 
     static getInstance(): HttpInterviewService{
         if(this._instance == null)

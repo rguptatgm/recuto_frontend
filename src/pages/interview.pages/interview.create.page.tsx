@@ -4,23 +4,12 @@ import OutlinedTextInput from '../../components/input.components/outlined.text.i
 import FilledButton from '../../components/input.components/filled.button.component/filled.button.component';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { interviewSchema } from '../../schemas/interview.schema';
+import { Interview, interviewSchema } from '../../schemas/interview.schema';
 import InterviewStore from '../../stores/interview.store';
 import { inject, observer } from 'mobx-react';
 
-//interface Question {
-//    questionTitle: string;
-//    question: string;
-//}
-
 interface InterviewFormProps {
     interviewStore?: InterviewStore;
-//    title?: string;
-//    description?: string;
-//    thinkingTime?: number;
-//    maxAnswerTime?: number;
-//    maxRetakes?: number;
-//    questions?: Question[];
 }
 
 const InterviewForm = ({
@@ -37,21 +26,15 @@ const InterviewForm = ({
         defaultValues: {
             title: '',
             description: '',
-            //questions: [{ questionTitle: '', question: '' }],
         },
     });
 
-    //const { fields, append, remove } = useFieldArray({
-    //    control,
-    //    name: 'questions',
-    //});
-
-    const onSubmit = async (data: any): Promise<void> => {
+    const onSubmit = async (data: Interview): Promise<void> => {
         const newInterview = await interviewStore?.createInterview({
             ...data
         });
 
-        //console.log(newInterview);
+        console.log(newInterview);
     };
 
     return (

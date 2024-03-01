@@ -7,18 +7,21 @@ import { useEffect } from "react";
 import ProjectStore from "./stores/project.store";
 import { ModalStore } from "./stores/modal.store";
 import InterviewStore from "./stores/interview.store";
+import QuestionStore from "./stores/question.store";
 
 
 const userStore = new UserStore();
 const projectStore = new ProjectStore();
 const modalStore = new ModalStore();
 const interviewStore = new InterviewStore();
+const questionStore = new QuestionStore();
 
 const stores = {
   userStore,
   projectStore,
   modalStore,
   interviewStore,
+  questionStore,
 };
 
 const App = () => {
