@@ -35,7 +35,7 @@ const QuestionForm = ({
 
   const onSubmit = async (data: Questions): Promise<void> => {
 
-    console.log("data")
+    console.log(interviewStore)
 
     const questions = data.questions ?? [];
 
@@ -47,7 +47,7 @@ const QuestionForm = ({
       await questionStore?.createQuestion(question);
     }) 
 
-    console.log(data);
+    //console.log(data);
   };
 
   return (
@@ -117,7 +117,7 @@ const QuestionForm = ({
             type="submit"
             label={'Fragen Erstellen'}
             className="mt-15 mb-15 full-width"
-            onClick={handleSubmit(onSubmit)}
+            //onClick={handleSubmit(onSubmit)}
           />
         </form>
       </PageContainer>

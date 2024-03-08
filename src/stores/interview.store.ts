@@ -26,6 +26,10 @@ class InterviewStore{
         this._interviews = interviews;
     };
 
+    addInterview = (interview: Interview): any => {
+      this._interviews.push(interview);
+      return interview;
+    }
 
     //! Getters
     get interview(): Interview | undefined {
@@ -40,7 +44,8 @@ class InterviewStore{
 
     get interviews(): Interview[] | undefined {
       if (this._interviews == null) {
-        return;
+        return JSON.parse(JSON.stringify([]));
+
       }
 
       return JSON.parse(JSON.stringify(this._interviews));
