@@ -15,4 +15,4 @@ export interface Organization {
 
 
 
-export interface Interview extends yup.InferType<typeof OrganizationSchema> {}
+export interface Organization extends yup.InferType<typeof OrganizationSchema> {}

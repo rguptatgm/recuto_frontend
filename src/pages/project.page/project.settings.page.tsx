@@ -73,7 +73,7 @@ const ProjectSettingsPage = ({ projectStore }: ProjectSettingsPageProps) => {
         <form
           id="project-settings-form"
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onSubmit={handleSubmit(onSubmit, (errors) => {
+          onSubmit={handleSubmit(onSubmit, () => {
             toast.error("Bitte überprüfe deine Eingaben");
             setFormIsDirty(false);
           })}
