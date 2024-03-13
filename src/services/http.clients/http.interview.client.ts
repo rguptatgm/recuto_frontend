@@ -4,7 +4,6 @@ import { GenericHttpClient } from "./config/http.generic.client";
 
 export class HttpInterviewService extends GenericHttpClient<Interview>{
     static _instance: HttpInterviewService;
-    updateCurrentInterview: any;
 
     static getInstance(): HttpInterviewService{
         if(this._instance == null)
@@ -14,7 +13,7 @@ export class HttpInterviewService extends GenericHttpClient<Interview>{
 
     async createInterview(interview: Interview): Promise<Interview | undefined> {
         try{
-            const response = await this.post("/interviews", interview);
+            const response = await this.post('/interviews', interview);
             return response.data;
         } catch(err){
             Logging.error({
@@ -24,6 +23,7 @@ export class HttpInterviewService extends GenericHttpClient<Interview>{
                 exception: err,
                 showAlert: true,
             });
+            throw err;
         }
         
     }

@@ -13,7 +13,7 @@ class InterviewStore{
     }
     
     //! Setter
-    setCurrentInterview = (interview: Interview): any => {
+    setCurrentInterview = (interview: Interview): void => {
         if(interview == null){
             return;
         }
@@ -22,13 +22,12 @@ class InterviewStore{
         this._currentInterview = interview;
     }
 
-    setInterviews = (interviews: Interview[]): any => {
+    setInterviews = (interviews: Interview[]): void => {
         this._interviews = interviews;
     };
 
-    addInterview = (interview: Interview): any => {
+    addInterview = (interview: Interview): void => {
       this._interviews.push(interview);
-      return interview;
     }
 
     //! Getters
@@ -37,35 +36,32 @@ class InterviewStore{
             return;
         }
 
-        return JSON.parse(JSON.stringify(this._currentInterview));
+        return this._currentInterview;
     }
 
     
 
-    get interviews(): Interview[] | undefined {
-      if (this._interviews == null) {
-        return JSON.parse(JSON.stringify([]));
-
-      }
-
-      return JSON.parse(JSON.stringify(this._interviews));
+    get interviews(): Interview[] {
+      return this._interviews;
     }
 
     
     //! Methods
     createInterview = async(interview: Interview): Promise<Interview | undefined> =>{
+
+        console.log("create");
+
         try{
             const initialInterview = await HttpInterviewService.getInstance().createInterview(interview);
 
             if (initialInterview == null) {
                 return;
             }
-            
-            console.log(initialInterview);
-
             this.setCurrentInterview(initialInterview);
+            this.addInterview(initialInterview);
+            
             return initialInterview;
-        }catch(err){
+        }catch (err){
             Logging.error({
                 className: "InterviewStore",
                 methodName: "createInterview",
@@ -73,34 +69,10 @@ class InterviewStore{
                 exception: err,
                 showAlert: true,
             });
+            return;
         }
         
     };
-
-  updateCurrentInterview = async (
-    interview: Interview
-  ): Promise<Interview | undefined> => {
-    try {
-      const updatedInterview =
-        await HttpInterviewService.getInstance().updateCurrentInterview(interview);
-
-      if (updatedInterview == null) {
-        return;
-      }
-
-      this.setCurrentInterview(updatedInterview);
-
-      return updatedInterview;
-    } catch (err) {
-      Logging.error({
-        className: "InterviewStore",
-        methodName: "updateCurrentInterview",
-        message: "Could not update current interview",
-        exception: err,
-        showAlert: true,
-      });
-    }
-  };
 }
 
 export default InterviewStore;
