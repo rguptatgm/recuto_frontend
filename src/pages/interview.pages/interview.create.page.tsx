@@ -44,7 +44,7 @@ const InterviewForm = ({
         name: "questions"
     });
 
-    const onSubmit = async (data: Interview): Promise<void> => {
+    const onSubmit = async (data: any): Promise<void> => {
         console.log(interviewStore);
         try {
             const newInterview = await interviewStore?.createInterview(data);
